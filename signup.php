@@ -1,5 +1,7 @@
 <?php
+session_start();
 require_once 'functions.php';
+
 
 if(isset($_POST) && !empty($_POST)){ 
 $email = secure_email($_POST['email']);

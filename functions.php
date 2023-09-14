@@ -29,7 +29,13 @@ if($user){
     // comparaison du pass saisi avec celui de la bdd
     //$password est la valeur entrée par l'user, $user[password] est la valeur hashée
     if(password_verify($password, $user['password'])) {
-        echo 'utilisateur connecté';
+       // echo 'utilisateur connecté';
+        session_start(); //sert a donner acces a $_SESSION du dessous
+        $_SESSION['user'] = [
+            'id' => $user['id_users'],
+            'email' => $user['email']
+        ];
+        //ensuite on fait echo au session start en haut dans les autres pages
     }else{
         echo 'mauvais identifiant';
     }
